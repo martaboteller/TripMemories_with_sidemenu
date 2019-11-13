@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="cat.cifo.hospitalet.tripmemoriessidemenu.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_detailFragment2"
+            app:destination="@id/nav_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_map"
+        android:name="cat.cifo.hospitalet.tripmemoriessidemenu.ui.map.MapFragment"
+        android:label="@string/menu_map"
+        tools:layout="@layout/fragment_map" />
+
+    <fragment
+        android:id="@+id/nav_about"
+        android:name="cat.cifo.hospitalet.tripmemoriessidemenu.ui.about.AboutFragment"
+        android:label="@string/menu_about"
+        tools:layout="@layout/fragment_about" />
+
+    <fragment
+    android:id="@+id/nav_detail"
+    android:name="cat.cifo.hospitalet.tripmemoriessidemenu.ui.detail.DetailFragment"
+    android:label="@string/menu_detail"
+    tools:layout="@layout/fragment_detail" >
+        <action
+            android:id="@+id/action_nav_detail_to_nav_home"
+            app:destination="@id/nav_home"/>
+    </fragment>
+    <dialog
+        android:id="@+id/datePickerFragment"
+        android:name="cat.cifo.hospitalet.tripmemoriessidemenu.ui.utils.DatePickerFragment"
+        android:label="DatePickerFragment" >
+        <action
+            android:id="@+id/action_datePickerFragment_to_nav_detail"
+            app:destination="@id/nav_detail" />
+    </dialog>
+
+
+</navigation>

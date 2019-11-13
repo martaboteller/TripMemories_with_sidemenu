@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Trip Memories</string>
+    <string name="nav_header_title">Trip Memories</string>
+    <string name="nav_header_subtitle">CIFO Hospitalet</string>
+
+
+    <string name="menu_home">Home</string>
+    <string name="menu_map">Mapa</string>
+    <string name="menu_detail">Trip</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_about">Nosaltres</string>
+    <string name="menu_send">Send</string>
+    <string name="sobre_aquesta_app">Sobre aquesta app</string>
+    <string name="nav_header_desc">Trip Memories</string>
+
+    <string name="uuid_text">Uuid</string>
+    <string name="trip_name">TripName</string>
+    <string name="id_text">Id:</string>
+    <string name="autofillhints_tripname">Trip Name</string>
+    <string name="new_trip">Nou viatge</string>
+    <string name="delete_trip">Elimina viatge</string>
+    <string name="id_country">Country:</string>
+    <string name="id_date">Date:</string>
+    <string name="text_country">Country</string>
+    <string name="date_trip">Data viatge</string>
+    <string name="update_trip">Actualitzar viatge</string>
+
+
+</resources>
