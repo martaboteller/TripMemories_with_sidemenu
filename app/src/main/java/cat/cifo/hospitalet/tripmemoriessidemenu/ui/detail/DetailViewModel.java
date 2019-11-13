@@ -50,10 +50,10 @@ public class DetailViewModel extends AndroidViewModel {
         return mUpdateResult;
     }
 
-    //TODO
-    // public void deleteTrip(Trip trip){
-    //    tripRepository.delete(trip);
-    //}
+    //Delete function
+    public void deleteTrip(Trip trip) {
+        tripRepository.deleteTrip(trip);
+   }
 
 
 

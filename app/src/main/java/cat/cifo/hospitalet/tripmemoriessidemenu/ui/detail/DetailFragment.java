@@ -101,7 +101,7 @@ public class DetailFragment extends Fragment implements DatePickerFragment.Callb
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         if(item.getItemId() == R.id.delete_trip){
-            //mViewModel.deleteTrip(mTrip);
+            mViewModel.deleteTrip(mTrip);
             mCallbacks.onTripDeleted(mTrip.getUUID());
             /*Bundle bundle = new Bundle();
             bundle.putSerializable(CURRENT_UUID_ARG,mTrip.getUUID());

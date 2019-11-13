@@ -91,8 +91,8 @@ public class TripRepository {
         return mutableLiveDataTripInserted;
     }
 
-    public LiveData<Trip> deleteTrip(UUID uuid) {
-        Call<Trip> call = apiService.deleteTrip(uuid.toString());
+    public LiveData<Trip> deleteTrip(Trip trip) {
+        Call<Trip> call = apiService.deleteTrip(trip);
         call.enqueue(new Callback<Trip>() {
             @Override
             public void onResponse(Call<Trip> call, Response<Trip> response) {
