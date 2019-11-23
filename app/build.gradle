@@ -15,6 +15,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            resValue "string","maps_sdk_api_key","AIzaSyBcHISfOX-tVk3TKp6jfsmSJITs8TEq4ik"
+        }
+        debug{
+            resValue "string","maps_sdk_api_key","AIzaSyBcHISfOX-tVk3TKp6jfsmSJITs8TEq4ik"
         }
     }
     compileOptions {
@@ -45,4 +49,8 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.2.1'
+    //Google Play Maps
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    //To solve images rotation bug
+    implementation 'androidx.exifinterface:exifinterface:1.0.0'
 }

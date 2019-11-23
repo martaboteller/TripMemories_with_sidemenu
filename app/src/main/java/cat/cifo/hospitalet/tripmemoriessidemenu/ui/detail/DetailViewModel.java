@@ -1,11 +1,15 @@
 package cat.cifo.hospitalet.tripmemoriessidemenu.ui.detail;
 
 import android.app.Application;
+import android.content.Context;
+
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Transformations;
+
+import java.io.File;
 import java.util.List;
 import java.util.UUID;
 import model.Trip;
@@ -55,7 +59,11 @@ public class DetailViewModel extends AndroidViewModel {
         tripRepository.deleteTrip(trip);
    }
 
+   //Get the photo given it's location
+    File getPhoto(Trip trip){
 
+        return tripRepository.getPhotoFile(trip);
+    }
 
 
 }

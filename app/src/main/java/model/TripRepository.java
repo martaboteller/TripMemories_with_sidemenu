@@ -4,6 +4,8 @@ import android.app.Application;
 import android.util.Log;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -23,6 +25,7 @@ public class TripRepository {
     private MutableLiveData<Trip> mutableLiveDataTrip = new MutableLiveData<>();
     private MutableLiveData<Trip> mutableLiveDataTripInserted = new MutableLiveData<>();
     private Application application;
+    private File filesDir;
 
 
     //Constructor
@@ -106,6 +109,9 @@ public class TripRepository {
         return mutableLiveDataTripInserted;
     }
 
-
+    //Find photo by its name
+    public File getPhotoFile(Trip trip){
+        return new File(filesDir,trip.getPhoto());
+    }
 
 }

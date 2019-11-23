@@ -13,11 +13,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
         android:autofillHints="@string/autofillhints_tripname"
         android:hint="@string/autofillhints_tripname"
-        android:inputType="text"
+        android:inputType="textNoSuggestions"
         android:paddingLeft="10dp"
         android:paddingTop="10dp"
         android:paddingRight="10dp"
@@ -32,38 +32,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- <TextView
-        android:id="@+id/uuid_text"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="30dp"
-        android:paddingLeft="10dp"
-        android:paddingTop="10dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="10dp"
-        android:text="@string/uuid_text"
-        android:textColor="@color/colorPrimary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/uuid"
-        app:layout_constraintTop_toBottomOf="@id/trip_name" />
-
-    <TextView
-        android:id="@+id/uuid"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="30dp"
-        android:paddingLeft="10dp"
-        android:paddingTop="10dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="10dp"
-        android:text="@string/id_text"
-        app:layout_constraintRight_toLeftOf="@id/uuid_text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/trip_name" />-->
 
     <TextView
         android:id="@+id/country"
@@ -72,6 +40,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="30dp"
+        android:inputType="textNoSuggestions"
         android:paddingLeft="10dp"
         android:paddingTop="10dp"
         android:paddingRight="10dp"
@@ -88,7 +57,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="30dp"
         android:background="@android:color/transparent"
-        android:inputType="text"
+        android:inputType="textNoSuggestions"
         android:paddingLeft="10dp"
         android:paddingTop="10dp"
         android:paddingRight="10dp"
@@ -105,8 +74,9 @@
         android:id="@+id/date"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="0dp"
+        android:inputType="textNoSuggestions"
         android:paddingLeft="10dp"
         android:paddingTop="10dp"
         android:paddingRight="10dp"
@@ -118,15 +88,98 @@
 
     <Button
         android:id="@+id/trip_date_button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/buttons"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:text="@string/date_trip"
+        android:textColor="@color/colorPrimary"
         android:textSize="11sp"
-
         app:layout_constraintStart_toEndOf="@id/date"
         app:layout_constraintTop_toTopOf="@id/date"
-        app:layout_constraintBottom_toBottomOf="@id/date"/>
+        />
+
+    <TextView
+        android:id="@+id/contact"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="0dp"
+        android:inputType="textNoSuggestions"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:text="@string/id_contact"
+        app:layout_constraintStart_toStartOf="@id/date"
+        app:layout_constraintTop_toBottomOf="@id/date" />
+
+    <Button
+        android:id="@+id/trip_contact_button"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/buttons"
+        android:text="@string/company_del_viatge"
+        android:textSize="11sp"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintStart_toEndOf="@id/contact"
+        app:layout_constraintTop_toTopOf="@id/contact" />
+
+
+
+    <Button
+        android:id="@+id/trip_send_button"
+        android:layout_width="65dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/send_button"
+        android:text="@string/enviar_viatge"
+        android:textSize="11sp"
+        android:textColor="@color/WhiteSmoke"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/trip_photo"
+        android:layout_width="220dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="50dp"
+        android:cropToPadding="true"
+        android:background="@drawable/buttons"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/trip_contact_button" />
+
+    <ImageButton
+        android:id="@+id/trip_camera_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:background="@android:color/transparent"
+        android:src="@android:drawable/ic_menu_camera"
+        app:layout_constraintStart_toEndOf="@id/trip_photo"
+        app:layout_constraintTop_toTopOf="@id/trip_photo" />
+
+    <ImageButton
+        android:id="@+id/trip_phone_button"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="30dp"
+        android:background="@android:drawable/ic_menu_call"
+        app:layout_constraintStart_toEndOf="@id/trip_contact_button"
+        app:layout_constraintTop_toTopOf="@id/trip_contact_button"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

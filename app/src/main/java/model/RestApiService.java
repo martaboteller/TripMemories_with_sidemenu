@@ -16,20 +16,22 @@ import retrofit2.http.Query;
 
 public interface RestApiService {
 
-    @GET("cifotest.php")
-    //@GET("get.php")
+    //@GET("cifotestp4.php")
+    @GET("get.php")
     Call<ArrayList<Trip>> getAllTrips();
 
-    @GET("cifotest.php")
-    //@GET("get.php")
-    Call<ArrayList<Trip>> getTripById(@Query("tripid") String tripid);
+    //@GET("cifotestp4.php")
+    @GET("get.php")
+    // Call<ArrayList<Trip>> getTripById(@Query("uuid") String uuid);
+    Call<ArrayList<Trip>> getTripById(@Query("tripuuid") String tripid);
 
-    @POST("cifotestpost.php")
-    //@GET("post.php")
+    //@POST("cifotestpostp4.php")
+    //@POST("post.php")
+    @HTTP(method= "INSERT", path = "post.php", hasBody = true)
     Call<Trip> insertTrip(@Body Trip trip);
 
-    //@DELETE("cifotestpostpf.php")
-    @HTTP(method = "DELETE", path = "cifotestpost.php", hasBody = true)
+    //@DELETE("cifotestpostp4.php")
+    @HTTP(method = "DELETE", path = "post.php", hasBody = true)
     Call<Trip> deleteTrip(@Body Trip trip);
 
 

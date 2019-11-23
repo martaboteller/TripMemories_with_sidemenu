@@ -9,25 +9,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.BitSet;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -50,11 +40,6 @@ public class HomeFragment extends Fragment {
         return new HomeFragment();
     }
 
-    /*//Second constructor
-    public static HomeFragment newInstance(UUID uuid) {
-        mUUID = uuid;
-        return new HomeFragment();
-    }*/
 
     //Associating resources with views
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -88,13 +73,14 @@ public class HomeFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+
     }
 
     //Making the menu visible
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
         super.onCreateOptionsMenu(menu,inflater);
-        inflater.inflate(R.menu.home_fragment,menu);
+        inflater.inflate(R.menu.main_fragment,menu);
     }
 
     //Indicate action when insert button selected

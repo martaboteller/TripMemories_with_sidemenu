@@ -12,6 +12,8 @@ import java.util.Date;
 import java.util.Objects;
 import java.util.UUID;
 
+import cat.cifo.hospitalet.tripmemoriessidemenu.R;
+
 @Entity(tableName = "table_trips")
 public class Trip {
 
@@ -24,6 +26,11 @@ public class Trip {
     private String mCountry;
     @SerializedName("date")
     private Date mDate;
+    @SerializedName("comp")
+    private String mComp;
+    @SerializedName ("photo")
+    private String mPhoto;
+
 
     //Constructor
     public Trip(String name, String country){
@@ -31,6 +38,15 @@ public class Trip {
         this.mName = name;
         this.mCountry = country;
         this.mDate = new Date();
+    }
+
+    //Constructor2
+    public Trip(String name, String country,String comp){
+        mUUID = UUID.randomUUID();
+        this.mName = name;
+        this.mCountry = country;
+        this.mDate = new Date();
+        this.mComp = comp;
     }
 
     //Getters and Setters
@@ -51,6 +67,10 @@ public class Trip {
     }
     public Date getDate() {return mDate; }
     public void setDate(@NonNull Date date) {mDate = date;}
+    public String getComp() {return mComp;}
+    public void setComp(String comp) {mComp = comp;}
+    public String getPhoto() { return "IMG_" + mUUID + ".jpg";}
+    public void setPhoto(String photo) {mPhoto = photo;}
 
     @Override
     public boolean equals(Object o) {
@@ -77,6 +97,8 @@ public class Trip {
                 ", mDate=" + mDate +
                 '}';
     }
+
+
 
 
 

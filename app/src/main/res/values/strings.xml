@@ -22,9 +22,17 @@
     <string name="delete_trip">Elimina viatge</string>
     <string name="id_country">Country:</string>
     <string name="id_date">Date:</string>
+    <string name="id_contact">Tag Friend:</string>
     <string name="text_country">Country</string>
     <string name="date_trip">Data viatge</string>
     <string name="update_trip">Actualitzar viatge</string>
+    <string name="company_del_viatge">Company de viatge</string>
+    <string name="enviar_viatge">Send</string>
+
+    <!--Strings to show sending invitation to mate -->
+    <!--%1$s it's a placeholder -->
+    <string name="company_del_viatge_text">Vam anar amb %1$s!</string>
+    <string name="viatge_text_per_enviar">Vam anar a  amb %1$s, %2s, amb en/na %3$s!</string>
 
 
 </resources>
