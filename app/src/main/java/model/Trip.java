@@ -2,17 +2,13 @@ package model;
 
 
 import androidx.annotation.NonNull;
-import androidx.room.ColumnInfo;
 import androidx.room.Entity;
-import androidx.room.PrimaryKey;
-
 import com.google.gson.annotations.SerializedName;
-
 import java.util.Date;
 import java.util.Objects;
 import java.util.UUID;
 
-import cat.cifo.hospitalet.tripmemoriessidemenu.R;
+
 
 @Entity(tableName = "table_trips")
 public class Trip {
@@ -30,9 +26,20 @@ public class Trip {
     private String mComp;
     @SerializedName ("photo")
     private String mPhoto;
+    @SerializedName ("deleted")
+    private int mDeleted;
+    @SerializedName("phone")
+    private String mPhone;
+    @SerializedName("latitude")
+    private Double mLatitude;
+    @SerializedName("longitude")
+    private Double mLongitude;
+    @SerializedName("location")
+    private String mLocation;
+    @SerializedName("photobase")
+    private String mPhotobase;
 
-
-    //Constructor
+    //Constructor1
     public Trip(String name, String country){
         mUUID = UUID.randomUUID();
         this.mName = name;
@@ -48,6 +55,23 @@ public class Trip {
         this.mDate = new Date();
         this.mComp = comp;
     }
+
+    //Constructor3
+    public Trip(String name, String country,Date date,String comp,String photo,int deleted,String phone, Double latitude, Double longitude,String location,String photobase){
+        mUUID = UUID.randomUUID();
+        this.mName = name;
+        this.mCountry = country;
+        this.mDate = date;
+        this.mComp = comp;
+        this.mPhoto = photo;
+        this.mDeleted = deleted;
+        this.mPhone = phone;
+        this.mLatitude =latitude;
+        this.mLongitude = longitude;
+        this.mLocation = location;
+        this.mPhotobase = photobase;
+    }
+
 
     //Getters and Setters
     public UUID getUUID() {
@@ -71,6 +95,18 @@ public class Trip {
     public void setComp(String comp) {mComp = comp;}
     public String getPhoto() { return "IMG_" + mUUID + ".jpg";}
     public void setPhoto(String photo) {mPhoto = photo;}
+    public int getDeleted() {return mDeleted;}
+    public void setDeleted(int deleted) {mDeleted = deleted;}
+    public String getPhone() {return mPhone;}
+    public void setPhone(String phone) {mPhone = phone;}
+    public Double getLatitude() {return mLatitude;}
+    public void setLatitude(Double latitude) {mLatitude = latitude;}
+    public Double getLongitude() {return mLongitude;}
+    public void setLongitude(Double longitude) {mLongitude = longitude;}
+    public String getLocation() {return mLocation;}
+    public void setLocation(String location) {mLocation = location;}
+    public String getPhotobase() {return mPhotobase;}
+    public void setPhotobase(String photobase) {mPhotobase = photobase;}
 
     @Override
     public boolean equals(Object o) {
@@ -85,7 +121,8 @@ public class Trip {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getUUID(), getName(), getCountry(), getDate());
+        return Objects.hash(getUUID(), getName(), getCountry(), getDate(),
+                getComp(),getPhoto(),getDeleted(),getPhone(),getLatitude(),getLongitude());
     }
 
     @Override
@@ -94,15 +131,17 @@ public class Trip {
                 "mUUID=" + mUUID +
                 ", mName='" + mName + '\'' +
                 ", mCountry='" + mCountry + '\'' +
-                ", mDate=" + mDate +
+                ", mDate=" + mDate + '\'' +
+                ", mComp='" + mComp + '\'' +
+                ", mPhoto='" + mPhoto + '\'' +
+                ", mDeleted=" + mDeleted + '\'' +
+                ", mPhone='" + mPhone + '\'' +
+                ", mLatitude=" + mLatitude + '\'' +
+                ", mLongitude=" + mLongitude + '\'' +
+                ", mLocation='" + mLocation + '\'' +
+                ", mPhotobase='" + mPhotobase + '\'' +
                 '}';
     }
-
-
-
-
-
-
 
 }
 

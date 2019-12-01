@@ -3,5 +3,6 @@
     <!--Map to the app root folder -->
     <files-path
         name="trip_photos"
-        path="." />
+        path="."/>
+
 </paths>

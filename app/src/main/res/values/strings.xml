@@ -14,25 +14,37 @@
     <string name="sobre_aquesta_app">Sobre aquesta app</string>
     <string name="nav_header_desc">Trip Memories</string>
 
-    <string name="uuid_text">Uuid</string>
-    <string name="trip_name">TripName</string>
-    <string name="id_text">Id:</string>
-    <string name="autofillhints_tripname">Trip Name</string>
     <string name="new_trip">Nou viatge</string>
     <string name="delete_trip">Elimina viatge</string>
-    <string name="id_country">Country:</string>
-    <string name="id_date">Date:</string>
-    <string name="id_contact">Tag Friend:</string>
-    <string name="text_country">Country</string>
-    <string name="date_trip">Data viatge</string>
     <string name="update_trip">Actualitzar viatge</string>
-    <string name="company_del_viatge">Company de viatge</string>
-    <string name="enviar_viatge">Send</string>
+
+    <string name="name">TripName</string>
+    <string name="autofillhints_tripname">Trip Name</string>
+    <string name="country_tag">Country:</string>
+    <string name="date_tag">Date:</string>
+    <string name="comp_tag">Friend:</string>
+    <string name="location_tag">Location:</string>
+    <string name="latitude_tag">Lat:</string>
+    <string name="longitude_tag">Long:</string>
+
+    <string name="country">Country</string>
+    <string name="date">Date</string>
+    <string name="comp">Friend</string>
+    <string name="location">Location</string>
+    <string name="share_button">Share</string>
 
     <!--Strings to show sending invitation to mate -->
     <!--%1$s it's a placeholder -->
-    <string name="company_del_viatge_text">Vam anar amb %1$s!</string>
-    <string name="viatge_text_per_enviar">Vam anar a  amb %1$s, %2s, amb en/na %3$s!</string>
+    <string name="trip_subject_to_send">Remember when we went to %1$s!</string>
+    <string name="trip_message_to_send">This trip at %1$s in %2$s was awsome with %3s!</string>
+
+    <string name="service_not_available">Service not available</string>
+    <string name="invalid_lat_long_used">Invalid latitude longitude used</string>
+    <string name="no_address_found">No address found</string>
+    <string name="address_found">Address found!</string>
+    <string name="no_geocoder_available">No geocoder available</string>
+
+
 
 
 </resources>

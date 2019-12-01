@@ -7,9 +7,9 @@
     android:layout_height="match_parent"
     tools:context=".ui.detail.DetailFragment">
 
-
+    <!--Name -->
     <EditText
-        android:id="@+id/trip_name"
+        android:id="@+id/name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -22,7 +22,7 @@
         android:paddingTop="10dp"
         android:paddingRight="10dp"
         android:paddingBottom="10dp"
-        android:text="@string/trip_name"
+        android:text="@string/name"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -32,9 +32,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
+    <!--Country Tag -->
     <TextView
-        android:id="@+id/country"
+        android:id="@+id/country_tag"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -45,13 +45,15 @@
         android:paddingTop="10dp"
         android:paddingRight="10dp"
         android:paddingBottom="10dp"
-        android:text="@string/id_country"
-        app:layout_constraintRight_toLeftOf="@id/country_name"
+        android:text="@string/country_tag"
+        android:textStyle="bold"
+        app:layout_constraintRight_toLeftOf="@id/country"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/trip_name" />
+        app:layout_constraintTop_toBottomOf="@+id/name" />
 
+    <!--Country Text -->
     <EditText
-        android:id="@+id/country_name"
+        android:id="@+id/country"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -62,16 +64,124 @@
         android:paddingTop="10dp"
         android:paddingRight="10dp"
         android:paddingBottom="10dp"
-        android:text="@string/text_country"
+        android:text="@string/country"
         android:textColor="@color/colorPrimary"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/country"
-        app:layout_constraintTop_toBottomOf="@id/trip_name" />
+        app:layout_constraintStart_toEndOf="@+id/country_tag"
+        app:layout_constraintTop_toBottomOf="@id/name" />
 
+    <!--Date Tag -->
     <TextView
+        android:id="@+id/date_tag"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="0dp"
+        android:inputType="textNoSuggestions"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="30dp"
+        android:paddingBottom="10dp"
+        android:text="@string/date_tag"
+        android:textStyle="bold"
+
+        app:layout_constraintStart_toStartOf="@id/country_tag"
+        app:layout_constraintTop_toBottomOf="@id/country_tag" />
+
+    <!--Date Text -->
+    <EditText
         android:id="@+id/date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:inputType="textNoSuggestions"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:text="@string/date"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@id/date_button"
+        app:layout_constraintStart_toEndOf="@id/date_tag"
+        app:layout_constraintTop_toTopOf="@id/date_tag" />
+
+    <!--Date Button (text) -->
+    <ImageButton
+        android:id="@+id/date_button"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="30dp"
+        android:background="@android:drawable/ic_menu_today"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/date"
+        app:layout_constraintTop_toTopOf="@id/date" />
+
+
+    <!--Comp Tag -->
+    <TextView
+        android:id="@+id/comp_tag"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:inputType="textNoSuggestions"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="10dp"
+        android:text="@string/comp_tag"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/date_tag"
+        app:layout_constraintTop_toBottomOf="@id/date_tag" />
+
+    <!--Mate  (text) -->
+    <EditText
+        android:id="@+id/comp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:background="@android:color/transparent"
+        android:inputType="textNoSuggestions"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:text="@string/comp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@id/comp_button"
+        app:layout_constraintStart_toEndOf="@id/comp_tag"
+        app:layout_constraintTop_toTopOf="@id/comp_tag" />
+
+    <!--Mate Button  -->
+    <ImageButton
+        android:id="@+id/comp_button"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="5dp"
+        android:background="@android:drawable/ic_menu_my_calendar"
+        app:layout_constraintEnd_toStartOf="@id/phone_button"
+        app:layout_constraintTop_toTopOf="@id/comp" />
+
+    <!--Phone Button to call Mate -->
+    <ImageButton
+        android:id="@+id/phone_button"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="30dp"
+        android:background="@android:drawable/ic_menu_call"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/comp" />
+
+
+    <!--Location Tag -->
+    <TextView
+        android:id="@+id/location_tag"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -79,107 +189,152 @@
         android:inputType="textNoSuggestions"
         android:paddingLeft="10dp"
         android:paddingTop="10dp"
-        android:paddingRight="10dp"
+        android:paddingRight="7dp"
         android:paddingBottom="10dp"
-        android:text="@string/id_date"
-        app:layout_constraintEnd_toStartOf="@id/country_name"
-        app:layout_constraintStart_toStartOf="@id/country"
-        app:layout_constraintTop_toBottomOf="@id/country" />
+        android:text="@string/location_tag"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/date_tag"
+        app:layout_constraintTop_toBottomOf="@id/comp_tag" />
 
-    <Button
-        android:id="@+id/trip_date_button"
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/buttons"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:text="@string/date_trip"
-        android:textColor="@color/colorPrimary"
-        android:textSize="11sp"
-        app:layout_constraintStart_toEndOf="@id/date"
-        app:layout_constraintTop_toTopOf="@id/date"
-        />
-
+    <!--Location text -->
     <TextView
-        android:id="@+id/contact"
-        android:layout_width="0dp"
+        android:id="@+id/location"
+        android:layout_width="217dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="0dp"
         android:inputType="textNoSuggestions"
         android:paddingLeft="10dp"
         android:paddingTop="10dp"
         android:paddingRight="10dp"
         android:paddingBottom="10dp"
-        android:text="@string/id_contact"
-        app:layout_constraintStart_toStartOf="@id/date"
-        app:layout_constraintTop_toBottomOf="@id/date" />
-
-    <Button
-        android:id="@+id/trip_contact_button"
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/buttons"
-        android:text="@string/company_del_viatge"
-        android:textSize="11sp"
         android:textColor="@color/colorPrimary"
-        app:layout_constraintStart_toEndOf="@id/contact"
-        app:layout_constraintTop_toTopOf="@id/contact" />
+        android:textSize="14sp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:scrollHorizontally="true"
+        app:layout_constraintStart_toEndOf="@id/location_tag"
+        app:layout_constraintTop_toTopOf="@id/location_tag" />
+
+    <!--Latitude TAG-->
+    <TextView
+        android:id="@+id/latitude_tag"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="0dp"
+        android:inputType="textNoSuggestions"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="7dp"
+        android:paddingBottom="10dp"
+        android:text="@string/latitude_tag"
+        app:layout_constraintStart_toStartOf="@id/location"
+        app:layout_constraintTop_toBottomOf="@id/location" />
+
+    <!--Longitude TAG-->
+    <TextView
+        android:id="@+id/longitude_tag"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="0dp"
+        android:inputType="textNoSuggestions"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="7dp"
+        android:paddingBottom="10dp"
+        android:text="@string/longitude_tag"
+        app:layout_constraintStart_toEndOf="@id/latitudeCoord"
+        app:layout_constraintTop_toBottomOf="@id/location" />
+
+    <!--Latitude COORDINATE-->
+    <TextView
+        android:id="@+id/latitudeCoord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:enabled="false"
+        android:inputType="textNoSuggestions"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/latitude_tag"
+        app:layout_constraintTop_toBottomOf="@id/location" />
+
+    <!--Longitude COORDINATE-->
+    <TextView
+        android:id="@+id/longitudeCoord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:enabled="false"
+        android:inputType="textNoSuggestions"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/longitude_tag"
+        app:layout_constraintTop_toBottomOf="@id/location" />
+
+    <!--Button to select location -->
+    <ImageButton
+        android:id="@+id/location_button"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="30dp"
+        android:src="@android:drawable/ic_menu_mylocation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/phone_button"
+        app:layout_constraintTop_toTopOf="@id/location" />
 
 
+    <!--Image Trip -->
+    <ImageView
+        android:id="@+id/photo"
+        android:layout_width="220dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="125dp"
+        android:background="@drawable/buttons"
+        android:cropToPadding="true"
+        android:scaleType="centerInside"
+        android:src="@drawable/firstimage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/comp_button" />
 
+    <!--Button to select image -->
+    <ImageButton
+        android:id="@+id/photo_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/transparent"
+        android:src="@android:drawable/ic_menu_camera"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/photo" />
+
+    <!--Share Button -->
     <Button
-        android:id="@+id/trip_send_button"
+        android:id="@+id/send_button"
         android:layout_width="65dp"
         android:layout_height="25dp"
         android:layout_marginStart="4dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="70dp"
         android:background="@drawable/send_button"
-        android:text="@string/enviar_viatge"
-        android:textSize="11sp"
+        android:text="@string/share_button"
         android:textColor="@color/WhiteSmoke"
+        android:textSize="11sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
-
-    <ImageView
-        android:id="@+id/trip_photo"
-        android:layout_width="220dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="50dp"
-        android:cropToPadding="true"
-        android:background="@drawable/buttons"
-        android:scaleType="centerInside"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/trip_contact_button" />
-
-    <ImageButton
-        android:id="@+id/trip_camera_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="5dp"
-        android:background="@android:color/transparent"
-        android:src="@android:drawable/ic_menu_camera"
-        app:layout_constraintStart_toEndOf="@id/trip_photo"
-        app:layout_constraintTop_toTopOf="@id/trip_photo" />
-
-    <ImageButton
-        android:id="@+id/trip_phone_button"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="30dp"
-        android:background="@android:drawable/ic_menu_call"
-        app:layout_constraintStart_toEndOf="@id/trip_contact_button"
-        app:layout_constraintTop_toTopOf="@id/trip_contact_button"
-        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

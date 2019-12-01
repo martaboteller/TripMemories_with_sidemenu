@@ -5,12 +5,14 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.graphics.Point;
+import android.util.Base64;
 import androidx.exifinterface.media.ExifInterface;
-
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
 public class PictureUtils {
+
     public static Bitmap getScaledBitmap (String path, Activity activity){
         Point size = new Point();
         activity.getWindowManager().getDefaultDisplay()
@@ -43,11 +45,11 @@ public class PictureUtils {
         return BitmapFactory.decodeFile(path, options);
     }
 
+
     //Function that rotates image if required
     public static Bitmap rotateImageIfRequired(Bitmap img, InputStream input) throws IOException {
 
         ExifInterface ei = new ExifInterface(input);
-
         int orientation = ei.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
 
         switch (orientation) {
@@ -62,6 +64,7 @@ public class PictureUtils {
         }
     }
 
+
     //Function that returns Bitmap rotated
     private static Bitmap rotateImage(Bitmap img, int degree) {
         Matrix matrix = new Matrix();
@@ -70,5 +73,43 @@ public class PictureUtils {
         img.recycle();
         return rotatedImg;
     }
+
+
+    //Encode image to base64 string
+    public static String encodeImage(Bitmap img) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        img.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] imageBytes = baos.toByteArray();
+        String imageString = Base64.encodeToString(imageBytes, Base64.DEFAULT);
+        return imageString;
+    }
+
+
+    //Decode image from base64 string to image
+    public static Bitmap decodeImate (String img){
+        byte [] imageBytes = Base64.decode(img, Base64.DEFAULT);
+        Bitmap decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+        return decodedImage;
+    }
+
+    //Resize bitmap
+    public static Bitmap resizeBitmap (Bitmap btmp){
+        int maxSize = 960;
+        int outWidth, outHeight;
+        int inWidth = btmp.getWidth();
+        int inHeight = btmp.getHeight();
+        Bitmap resizedBitmap;
+
+        if(inWidth > inHeight){
+            outWidth = maxSize;
+            outHeight = (inHeight * maxSize) / inWidth;
+        } else {
+            outHeight = maxSize;
+            outWidth = (inWidth * maxSize) / inHeight;
+        }
+        resizedBitmap = Bitmap.createScaledBitmap(btmp, outWidth, outHeight, false);
+        return resizedBitmap;
+    }
+
 
 }

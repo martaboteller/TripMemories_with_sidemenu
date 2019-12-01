@@ -1,19 +1,19 @@
 package cat.cifo.hospitalet.tripmemoriessidemenu.ui.map;
 
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
+import android.app.Application;
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 
-public class MapViewModel extends ViewModel {
 
-    private MutableLiveData<String> mText;
+public class MapViewModel extends AndroidViewModel {
 
-    public MapViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is map fragment");
+
+    public MapViewModel(@NonNull Application application) {
+        super(application);
+
     }
 
-    public LiveData<String> getText() {
-        return mText;
-    }
+
+
 }
+

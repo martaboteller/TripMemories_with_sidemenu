@@ -2,20 +2,15 @@ package cat.cifo.hospitalet.tripmemoriessidemenu.ui.utils;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.content.Context;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
-import androidx.navigation.fragment.NavHostFragment;
-
-import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-import cat.cifo.hospitalet.tripmemoriessidemenu.R;
+
 
 public class DatePickerFragment extends DialogFragment {
 
@@ -55,10 +50,6 @@ public class DatePickerFragment extends DialogFragment {
         Callbacks frag = (Callbacks) getTargetFragment();
         frag.onDateSelected(resultDate);
 
-        /*//Instead of Callback
-        Bundle bundle = new Bundle();
-        bundle.putSerializable(SELECTED_DATE_ARG,resultDate);
-        NavHostFragment.findNavController(this).navigate(R.id.nav_detail, bundle);*/
     };
 
 

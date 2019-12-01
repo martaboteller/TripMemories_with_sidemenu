@@ -9,7 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -17,15 +16,15 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
-
+import cat.cifo.hospitalet.tripmemoriessidemenu.MainActivity;
 import cat.cifo.hospitalet.tripmemoriessidemenu.R;
 import model.Trip;
 
 public class HomeFragment extends Fragment {
-
 
     //Variables
     private HomeViewModel homeViewModel;
@@ -50,23 +49,23 @@ public class HomeFragment extends Fragment {
         return v;
     }
 
+
+    //Callbacks
     public interface Callbacks {
         void onTripSelected(UUID trip);
     }
-
     private Callbacks mCallbacks = null;
-
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         mCallbacks = (Callbacks) context;
     }
-
     @Override
     public void onDetach() {
         super.onDetach();
         mCallbacks = null;
     }
+
 
     //Indicating there is a menu as soon as created
     @Override
@@ -88,19 +87,14 @@ public class HomeFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item){
 
         if(item.getItemId() == R.id.new_trip){
-            //Date d1 = new Date(10,10,2018);
-            Trip mtrip = new Trip("","");
+            Date today = getToday();
+            Trip mtrip = new Trip("","",today,"","",0,"",0.0,0.0,"","");
             homeViewModel.insert(mtrip);
             homeViewModel.getInsertResult().observe(this,result ->
                     mCallbacks.onTripSelected(mtrip.getUUID()));
-
-            //Bundle bundle = new Bundle();
-            //bundle.putSerializable(CURRENT_UUID_ARG,trip.getUUID());
-            //Navigation.findNavController(v).navigate(R.id.nav_detail, bundle);
         }
         return super.onOptionsItemSelected(item);
     }
-
 
 
     //For recyclerview use
@@ -121,7 +115,6 @@ public class HomeFragment extends Fragment {
         //Create an instance to the ViewModel with ViewModelProviders
         //LiveData is a background thread, need to be observed
         homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
-
     }
 
 
@@ -131,7 +124,11 @@ public class HomeFragment extends Fragment {
         homeViewModel.getAllTrips().observe(this, new Observer<List<Trip>>() {
             @Override
             public void onChanged(@Nullable final List<Trip> trips) {
+
                 adapter.setTrips(trips);
+                // Start service and update UI to reflect new location
+                //Save trips for map
+                ((MainActivity) getActivity()).setTrips(trips);
             }
         });
     }
@@ -172,14 +169,9 @@ public class HomeFragment extends Fragment {
             final Trip current = mTrips.get(position);
 
             holder.tripName.setText(current.getName());
-            //Navitate with each interaction of the element's list
             holder.tripName.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick (View v){
-                    /*//Toast.makeText(getActivity(),"Trip pressed!", Toast.LENGTH_SHORT).show();
-                    Bundle bundle = new Bundle();
-                    bundle.putSerializable(CURRENT_UUID_ARG,current.getUUID());
-                    Navigation.findNavController(v).navigate(R.id.nav_detail, bundle);*/
                     mCallbacks.onTripSelected(current.getUUID());
                 }
             });
@@ -198,7 +190,20 @@ public class HomeFragment extends Fragment {
                 return mTrips.size();
             else return 0;
             }
-    }
+        }
+
+        //Get today's date in Date format
+        public Date getToday(){
+            Date formatedDate = new Date();
+            String pattern = "yyyy-MM-dd";
+            SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+            try {
+                formatedDate = sdf.parse(pattern);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+            return formatedDate;
+        }
 
 
 }
