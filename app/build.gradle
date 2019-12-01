@@ -15,10 +15,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            resValue "string","maps_sdk_api_key","AIzaSyBcHISfOX-tVk3TKp6jfsmSJITs8TEq4ik"
+            resValue "string","maps_sdk_api_key","XXXXXXX"
         }
         debug{
-            resValue "string","maps_sdk_api_key","AIzaSyBcHISfOX-tVk3TKp6jfsmSJITs8TEq4ik"
+            resValue "string","maps_sdk_api_key","XXXXXXX"
         }
     }
     compileOptions {
